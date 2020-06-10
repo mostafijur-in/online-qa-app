@@ -37,9 +37,8 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
-    public function setTitleAttribute($value)
+    public function questions()
     {
-        $this->attributes['title']  = $value;
-        $this->attributes['slug']  = Str::slug($value);
+        return $this->hasMany(Question::class);
     }
 }
